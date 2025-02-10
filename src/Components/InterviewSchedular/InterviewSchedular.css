@@ -3,45 +3,65 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../Assets/bg-interview.jpg'); /* Replace with your image path */
+    background-image: url('../Assets/bg-interview.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     padding: 20px;
+    position: relative;
 }
-  .form-container {
-      background: rgba(255, 255, 255, 0.25); /* Increased transparency */
-      backdrop-filter: blur(12px); /* Increased blur for better readability */
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 20px;
-      padding: 40px;
-      width: 100%;
-      max-width: 800px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
 
-  /* Add glass effect to form elements */
-  input, select, textarea {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #333;
-  }
+.form-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border: 2px solid #3498db;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    max-height: 90vh;
+    padding: 25px;
+}
 
-  /* Make placeholder text more visible against transparent background */
-  ::placeholder {
-      color: #555;
-  }
+/* Add this to ensure all form elements stay within container width */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 100%;
+}
 
-  /* Enhance text readability */
-  h1, h2 {
-      color: #333;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  }
+input, select, textarea {
+    width: calc(100% - 30px); /* Subtracting padding to prevent overflow */
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #333;
+}
 
-  h1 {
-      text-align: center;
-      margin-bottom: 30px;
+/* Make placeholder text more visible against transparent background */
+::placeholder {
+    color: #555;
+}
+
+/* Enhance text readability */
+h1, h2 {
+    color: #333;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
       font-size: 2rem;
   }
 
@@ -80,22 +100,23 @@ textarea {
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 15px;
+    width: 200px;
+    padding: 12px;
     background: #3498db;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 0 auto;
+    display: block;
 }
 
 .submit-btn:hover {
     background: #2980b9;
     transform: translateY(-2px);
 }
-
 @media (max-width: 768px) {
     .form-container {
         padding: 20px;
