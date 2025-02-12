@@ -3,31 +3,53 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../Assets/bg-interview.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding: 20px;
+    padding: 40px 20px;
     position: relative;
+    margin: 0; /* Remove margins that cause unwanted scrolling */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .form-container {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
+    background: white;
     border: 2px solid #3498db;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative; /* Change to relative positioning */
     width: 90%;
     max-width: 800px;
     overflow-y: auto;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    max-height: 90vh;
+    overflow-x: hidden;
+    max-height: 80vh; /* Reduce max height to ensure visibility */
     padding: 25px;
+    scrollbar-width: thin;
+    scrollbar-color: #3498db #f1f1f1;
+    margin: 20px auto; /* Center the form with auto margins */
+}
+
+/* Custom scrollbar for Chrome/Safari/Edge */
+.form-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.form-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.form-container::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 3px;
+}
+
+input, select, textarea {
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #ddd;
+    color: #333;
 }
 
 /* Add this to ensure all form elements stay within container width */
@@ -37,7 +59,10 @@
     gap: 15px;
     width: 100%;
     max-width: 100%;
+    margin-top: 20px; /* Add margin to separate from the navbar */
+    /* Other existing styles */
 }
+
 
 input, select, textarea {
     width: calc(100% - 30px); /* Subtracting padding to prevent overflow */

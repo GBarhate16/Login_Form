@@ -8,6 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [action] = useState("Sign Up");
 
     const handleLogin = () => {
         if (!email || !password) {
@@ -17,6 +18,11 @@ const Login = () => {
 
         // Perform login logic here
         alert("Logged in successfully!");
+    };
+
+    
+    const handleSignRedirect = () => {
+        navigate('/signup');
     };
 
     return (
@@ -47,9 +53,7 @@ const Login = () => {
             </div>
             <div className="submit-container">
                 <div className="submit" onClick={handleLogin}>Login</div>
-            </div>
-            <div className="redirect-container">
-                <button onClick={() => navigate('/')}>Go to Sign Up</button>
+            <div className={action==="Sign Up"?"submit gray":"submit"} onClick={handleSignRedirect}>SignUp</div>
             </div>
         </div>
     );
